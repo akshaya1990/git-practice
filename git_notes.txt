@@ -1,0 +1,176 @@
+viswa@JeyViswanathan MINGW64 ~/Desktop
+$ mkdir git-practice
+
+viswa@JeyViswanathan MINGW64 ~/Desktop
+$ cd git-practice/
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice
+$ ls
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice
+$ ls -a
+./  ../
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice
+$ git init
+Initialized empty Git repository in C:/Users/viswa/Desktop/git-practice/.git/
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ ls -a
+./  ../  .git/
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ cd .git
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice/.git (GIT_DIR!)
+$ ls
+config  description  HEAD  hooks/  info/  objects/  refs/
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice/.git (GIT_DIR!)
+$ git config 
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    --worktree            use per-worktree config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-pattern]
+    --get-all             get all values: key [value-pattern]
+    --get-regexp          get values for regexp: name-regex [value-pattern]       
+    --get-urlmatch        get value specific for the URL: section[.var] URL       
+    --replace-all         replace all matching variables: name value [value-pattern]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-pattern]
+    --unset-all           remove all matches: name [value-pattern]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    --fixed-value         use string equality when comparing values to 'value-pattern'
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    -t, --type <type>     value is given this type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --bool-or-str         value is --bool or string
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+    --show-scope          show scope of config (worktree, local, global, system, command)
+    --default <value>     with --get, use default value when missing entry        
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter1.text
+
+nothing added to commit but untracked files present (use "git add" to track)      
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git log
+fatal: your current branch 'master' does not have any commits yet
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git diff
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git branch
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git add .
+warning: in the working copy of 'chapter1.text', LF will be replaced by CRLF the next time Git touches it
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   chapter1.text
+
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git diff
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git commit -m "Initial Commit"
+[master (root-commit) 8d4ebe1] Initial Commit
+ 1 file changed, 3 insertions(+)
+ create mode 100644 chapter1.text
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter2.txt
+        chapter3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)      
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git diff
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git log
+commit 8d4ebe114765493e0691355759def882d71a4832 (HEAD -> master)
+Author: Akshaya Viswanathan <akshayalakshmibv@gmail.com>
+Date:   Thu Apr 6 12:53:24 2023 +0530
+
+    Initial Commit
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git add .
+warning: in the working copy of 'chapter2.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'chapter3.txt', LF will be replaced by CRLF the next time Git touches it
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git commit -m "Add chapter 2 and 3"
+[master 1e5933f] Add chapter 2 and 3
+ 2 files changed, 12 insertions(+)
+ create mode 100644 chapter2.txt
+ create mode 100644 chapter3.txt
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git log
+commit 1e5933fa502bd996b8300d6134dc29da26dcdf86 (HEAD -> master)
+Author: Akshaya Viswanathan <akshayalakshmibv@gmail.com>
+Date:   Thu Apr 6 12:57:33 2023 +0530
+
+    Add chapter 2 and 3
+
+commit 8d4ebe114765493e0691355759def882d71a4832
+Author: Akshaya Viswanathan <akshayalakshmibv@gmail.com>
+Date:   Thu Apr 6 12:53:24 2023 +0530
+
+    Initial Commit
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+viswa@JeyViswanathan MINGW64 ~/Desktop/git-practice (master)
+$ ls -a
+
+
